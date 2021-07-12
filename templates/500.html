@@ -1,0 +1,202 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Something Wrong! server Error 500!</title>
+       <!-- Bootstrap core CSS -->
+       <link
+       href="{% static 'assets/dist/css/bootstrap.min.css' %}"
+       rel="stylesheet"
+     />
+
+    <style>
+      .page404-empty-svg {
+        display: inline-block;
+        width: 285px;
+        height: 285px;
+        margin-bottom: 25px;
+      }
+      .page404-empty-svg svg {
+        width: 285px;
+        height: 285px;
+      }
+
+      .page404-text {
+        max-width: 900px;
+
+        text-align: center;
+
+        color: #282828;
+      }
+      .page404-text [class*="icon"] {
+        font-size: 0.65em;
+
+        position: relative;
+        top: -0.1em;
+      }
+      .page404-text .icon-shopping-bag {
+        font-size: 1.1em;
+      }
+
+      .page404-text .txt1 {
+        font-family: "Open Sans", sans-serif;
+        font-size: 260px;
+        font-weight: bold;
+        line-height: 1em;
+      }
+      @media (max-width: 991px) {
+        .page404-text .txt1 {
+          font-size: 220px;
+        }
+      }
+      @media (max-width: 767px) {
+        .page404-text .txt1 {
+          font-size: 120px;
+        }
+      }
+
+      .page404-text .txt2 {
+        font-family: "Open Sans", sans-serif;
+        font-size: 44px;
+        font-weight: 600;
+        line-height: 1.25em;
+      }
+
+      @media (max-width: 991px) {
+        .page404-text .txt2 {
+          font-size: 36px;
+        }
+      }
+      @media (max-width: 767px) {
+        .page404-text .txt2 {
+          font-size: 28px;
+        }
+      }
+
+
+      .page404-text .txt4 {
+        font-family: "Open Sans", sans-serif;
+        font-size: 28px;
+        font-weight: 600;
+        line-height: 1.25em;
+        color: #282828;
+      }
+      @media (max-width: 767px) {
+        .page404-text .txt4 {
+          font-size: 24px;
+        }
+      }
+
+      .prd-grid .page404-bg,
+      .prd-listview .page404-bg,
+      .prd-horgrid .page404-bg {
+        width: 100%;
+        padding: 50px 0;
+      }
+
+      .prd-grid .page404-text,
+      .prd-listview .page404-text,
+      .prd-horgrid .page404-text {
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      .prd-grid .page404-text .txt2,
+      .prd-listview .page404-text .txt2,
+      .prd-horgrid .page404-text .txt2 {
+        font-size: 34px;
+      }
+
+      .prd-grid .page404-bg,
+      .prd-horgrid .page404-bg {
+        margin-top: 30px;
+      }
+
+      .page404-bg {
+        position: relative;
+
+        display: -ms-flexbox;
+        display: flex;
+
+        -ms-flex-align: center;
+        align-items: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+      }
+      .page404-bg > svg {
+        position: absolute;
+        z-index: -1;
+
+        overflow: visible;
+
+        width: 500px;
+        height: 500px;
+      }
+      @media (max-width: 767px) {
+        .page404-bg > svg {
+          width: 400px;
+          height: 400px;
+        }
+      }
+      @media (max-width: 575px) {
+        .page404-bg > svg {
+          width: 300px;
+          height: 300px;
+        }
+      }
+      .page404-bg > svg path {
+        transform: scale(2.6);
+
+        fill: #e8fbfc;
+      }
+      .page404-bg .page404-text {
+        position: absolute;
+      }
+
+      .page404-info {
+        max-width: 650px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+      .pagetop4 {
+        padding-top: 15rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="pagetop4"></div>
+
+    <div class="page-content mt-5 mb-4">
+      <div class="holder mt-0 mb-4 mb-lg-10">
+        <div class="container">
+          <div class="page404-bg">
+            <div class="page404-text">
+              <div class="txt1">500</div>
+              <div class="txt2">Something Wrong</div>
+            </div>
+            <svg
+              id="morphing"
+              xmlns="http://www.w3.org/2000/svg"
+              width="600"
+              height="600"
+              viewBox="0 0 600 600"
+            >
+              <g transform="translate(50,50)">
+                <path
+                  class="p"
+                  d="M93.5441 2.30824C127.414 -1.02781 167.142 -4.63212 188.625 21.7114C210.22 48.1931 199.088 86.5178 188.761 119.068C179.736 147.517 162.617 171.844 136.426 186.243C108.079 201.828 73.804 212.713 44.915 198.152C16.4428 183.802 6.66731 149.747 1.64848 118.312C-2.87856 89.9563 1.56309 60.9032 19.4066 38.3787C37.3451 15.7342 64.7587 5.14348 93.5441 2.30824Z"
+                />
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+   
+
+    <script src="{% static 'assets/dist/js/bootstrap.bundle.min.js' %}"></script>
+  </body>
+</html>

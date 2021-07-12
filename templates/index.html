@@ -1,0 +1,254 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta
+      name="author"
+      content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
+    />
+    <meta name="generator" content="Hugo 0.84.0" />
+    <title>Carousel Template · Bootstrap v5.0</title>
+
+    <link
+      rel="canonical"
+      href="https://getbootstrap.com/docs/5.0/examples/carousel/"
+    />
+
+    <!-- Bootstrap core CSS -->
+    <link
+      href="{% static 'assets/dist/css/bootstrap.min.css' %}"
+      rel="stylesheet"
+    />
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'carousel.css' %}" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">Carousel</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarCollapse"
+            aria-controls="navbarCollapse"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+
+        <div class="carousel-indicators">
+
+          
+          {% for i in carousel %}
+
+          <button
+            type="button"
+            data-bs-target="#myCarousel"
+            data-bs-slide-to="{{forloop.counter|add:-1}}"  
+            {% if forloop.counter == 1 %}
+            class="active"
+            {% endif %}
+            aria-current="true"
+            aria-label="Slide {{forloop.counter}}"
+          ></button>
+
+          {% endfor %}
+
+        </div>
+
+        <div class="carousel-inner">
+           
+          
+          {% for i in carousel %}
+             
+          <div 
+          {% if forloop.counter == 1 %} 
+          class="carousel-item active"
+          {% else %}
+          class="carousel-item"
+          {% endif %}
+            
+          >
+            <!-- <svg
+              class="bd-placeholder-img"
+              width="100%"
+              height="100%"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+              preserveAspectRatio="xMidYMid slice"
+              focusable="false"
+            >
+              <rect width="100%" height="100%" fill="#777" />
+            </svg> -->
+
+            <img class="bd-placeholder-img" src="{{ i.SliderImg.url }}" alt="">
+            
+            <div class="container">
+              
+              
+              {% if i.SliderTextPosition == '0' %}
+              <div class="carousel-caption text-start">
+              {% elif i.SliderTextPosition == '1' %}
+              <div class="carousel-caption text">
+              {% else %}
+              <div class="carousel-caption text-end">
+              {% endif %}
+                
+                <h1> {{ i.SliderHeadLine }}  </h1>
+                <p>
+                  {{ i.SliderDes }}
+                </p>
+                
+                {% if i.SliderButton == '0' %}
+                  
+                <p>
+                  <a class="btn btn-lg btn-primary" href="#"> {{ i.ButtonText }} </a>
+                </p>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+
+
+
+        </div>
+
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#myCarousel"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#myCarousel"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+
+      </div>
+
+
+      <!-- Marketing messaging and featurettes
+  ================================================== -->
+
+
+
+      <!-- Wrap the rest of the page in another container to center all the content. -->
+
+      <div class="container marketing">
+        <!-- Three columns of text below the carousel -->
+        <div class="row">
+          
+          {% for i in hcontent %}
+            
+          <!-- /.col-lg-4 -->
+          <div class="col-lg-4">
+            <img class="bd-placeholder-img rounded-circle" src="{{ i.Image.url }}" alt="">
+
+            <h2> {{ i.HeadingTitle }} </h2>
+            <p>
+              {{ i.ShortText|slice:100 }}
+              
+            </p>
+            <p>
+              <a class="btn btn-secondary" href="#">View details &raquo;</a>
+            </p>
+          </div>
+          <!-- /.col-lg-4 -->
+          {% endfor %}
+
+        </div>
+        <!-- /.row -->
+
+        <!-- START THE FEATURETTES -->
+
+      
+        <hr class="featurette-divider" />
+        {% for i in feature %}
+
+        <div class="row featurette">
+
+          {% if forloop.counter|divisibleby:2 %}
+            <div class="col-md-7 order-md-2">
+            {% else %}
+            <div class="col-md-7">
+          {% endif %}
+          
+            <h2 class="featurette-heading"> {{ i.Title|slice:50 }}</h2>
+            <p class="lead">
+              {{ i.ShortText }}
+            </p>
+          </div>
+          <div class="col-md-5">
+
+            <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto " src="{{ i.Image.url }}" alt="">
+          </div>
+        </div>
+
+        <hr class="featurette-divider" />
+        {% endfor %}
+
+
+        <!-- /END THE FEATURETTES -->
+      </div>
+      <!-- /.container -->
+
+      <!-- FOOTER -->
+      <footer class="container">
+        <p class="float-end"><a href="#">Back to top</a></p>
+        <p>
+          &copy; 2017–2021 Company, Mahiuddin &middot;
+          <a href="#">Privacy</a> &middot; <a href="#">Terms</a>
+        </p>
+      </footer>
+    </main>
+
+    <script src="{% static 'assets/dist/js/bootstrap.bundle.min.js' %}"></script>
+  </body>
+</html>
